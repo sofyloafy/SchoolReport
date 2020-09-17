@@ -8,5 +8,6 @@ public class SchoolReportTest {
     @Test
     public void testWrite() {
         assertEquals("Green: 1",schoolReport.write("Green"));
+        assertEquals("Amber: 1",schoolReport.write("Amber"));
     }
 }
