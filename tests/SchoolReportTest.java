@@ -6,8 +6,9 @@ public class SchoolReportTest {
     private SchoolReportGenerator schoolReport = new SchoolReportGenerator();
 
     @Test
-    public void testWrite() {
+    public void testWriteForSingleScore() {
         assertEquals("Green: 1",schoolReport.write("Green"));
         assertEquals("Amber: 1",schoolReport.write("Amber"));
+        assertEquals("Red: 1",schoolReport.write("Red"));
     }
 }
