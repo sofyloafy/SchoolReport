@@ -1,4 +1,4 @@
-import javax.sound.midi.SysexMessage;
+
 
 public class SchoolReportGenerator {
     public String write(String scores) {
@@ -13,14 +13,14 @@ public class SchoolReportGenerator {
         for (int i = 0; i < splitScores.length; i++)
         {
             if (green.equals(splitScores[i])){
-                scores = "Green";
+                scores = green;
                 count++;
             } else if (amber.equals(splitScores[i])){
-                scores = "Amber";
+                scores = amber;
                 count++;
             }
             else if (red.equals(splitScores[i])){
-                scores = "Red";
+                scores = red;
                 count++;
             }
 
@@ -28,5 +28,4 @@ public class SchoolReportGenerator {
 
         String output = String.format(": %s", count);
         return scores + output;
-    }
-}
+    }}

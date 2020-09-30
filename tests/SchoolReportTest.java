@@ -16,7 +16,15 @@ public class SchoolReportTest {
     @Test
     public void testWriteForDoubleScore() {
         assertEquals("Green: 2",schoolReport.write("Green, Green"));
+        assertEquals("Amber: 2",schoolReport.write("Amber, Amber"));
+        assertEquals("Red: 2",schoolReport.write("Red, Red"));
+    }
+
+    @Test
+    public void testWriteForTripleScore() {
         assertEquals("Green: 3",schoolReport.write("Green, Green, Green"));
+        assertEquals("Amber: 3",schoolReport.write("Amber, Amber, Amber"));
+        assertEquals("Red: 3",schoolReport.write("Red, Red, Red"));
     }
 
 }
