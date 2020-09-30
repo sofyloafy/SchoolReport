@@ -3,32 +3,23 @@ import java.util.HashMap;
 
 public class SchoolReportGenerator {
     public static String write(String scores) {
+        String green = "Green";
+        String amber = "Amber";
+        String red = "Red";
+
         ArrayList<String> results = new ArrayList<String>();
-
         String splitScores[] = scores.split(", ");
+
         HashMap<String, Integer> scoresCounter = new HashMap<String, Integer>();
-        scoresCounter.put("Amber", 0);
-        scoresCounter.put("Green", 0);
-        scoresCounter.put("Red", 0);
-
-//        Integer GreenCount = 0;
-//        Integer AmberCount = 0;
-//        Integer RedCount = 0;
-//        String green = "Green";
-//        String amber = "Amber";
-//        String red = "Red";
-
-//        For each colour
-//        For each item in the list
-//        Loop over array
+        scoresCounter.put(green, 0);
+        scoresCounter.put(amber, 0);
+        scoresCounter.put(red, 0);
 
         for (int i = 0; i < splitScores.length; i++) {
             for (int j = 0; j < scoresCounter.size(); j++) {
                 String key = (String) scoresCounter.keySet().toArray()[j];
-                System.out.print(key);
                 scoreCounter(splitScores, scoresCounter, i, key);
             }
-
         }
         return getFinalResult(results, scoresCounter);
     }
@@ -40,14 +31,17 @@ public class SchoolReportGenerator {
     }
 
     private static String getFinalResult(ArrayList<String> results, HashMap<String, Integer> scoresCounter) {
-        if (scoresCounter.get("Green") > 0) {
-            results.add("Green: " + scoresCounter.get("Green"));
+        String green = "Green";
+        String amber = "Amber";
+        String red = "Red";
+        if (scoresCounter.get(green) > 0) {
+            results.add("Green: " + scoresCounter.get(green));
         }
-        if (scoresCounter.get("Amber") > 0) {
-            results.add("Amber: " + scoresCounter.get("Amber"));
+        if (scoresCounter.get(amber) > 0) {
+            results.add("Amber: " + scoresCounter.get(amber));
         }
-        if (scoresCounter.get("Red") > 0) {
-            results.add("Red: " + scoresCounter.get("Red"));
+        if (scoresCounter.get(red) > 0) {
+            results.add("Red: " + scoresCounter.get(red));
         }
         String res = String.join(", ", results);
         return res;
