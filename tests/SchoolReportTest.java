@@ -29,7 +29,9 @@ public class SchoolReportTest {
 
     @Test
     public void testWriteForJoinedScores() {
-        assertEquals("Green: 1, Amber: 1", SchoolReportGenerator.write("Green, Amber"));
+//        assertEquals("Green: 1, Amber: 1", SchoolReportGenerator.write("Green, Amber"));
+        assertEquals("Green: 1, Amber: 3", SchoolReportGenerator.write("Green, Amber, Amber, Amber"));
+
     }
 
 }

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class SchoolReportGenerator {
     public static String write(String scores) {
@@ -10,7 +11,7 @@ public class SchoolReportGenerator {
         ArrayList<String> results = new ArrayList<String>();
         String splitScores[] = scores.split(", ");
 
-        HashMap<String, Integer> scoresCounter = new HashMap<String, Integer>();
+        LinkedHashMap<String, Integer> scoresCounter = new LinkedHashMap<String, Integer>();
         scoresCounter.put(green, 0);
         scoresCounter.put(amber, 0);
         scoresCounter.put(red, 0);
@@ -31,17 +32,12 @@ public class SchoolReportGenerator {
     }
 
     private static String getFinalResult(ArrayList<String> results, HashMap<String, Integer> scoresCounter) {
-        String green = "Green";
-        String amber = "Amber";
-        String red = "Red";
-        if (scoresCounter.get(green) > 0) {
-            results.add("Green: " + scoresCounter.get(green));
-        }
-        if (scoresCounter.get(amber) > 0) {
-            results.add("Amber: " + scoresCounter.get(amber));
-        }
-        if (scoresCounter.get(red) > 0) {
-            results.add("Red: " + scoresCounter.get(red));
+        String colour = "";
+        for (int i = 0; i < scoresCounter.size(); i++) {
+            colour = (String) scoresCounter.keySet().toArray()[i];
+            if (scoresCounter.get(colour) > 0) {
+                results.add(colour + ": " + scoresCounter.get(colour));
+            }
         }
         String res = String.join(", ", results);
         return res;
