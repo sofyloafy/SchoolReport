@@ -8,7 +8,6 @@ public class SchoolReportGenerator {
         String amber = "Amber";
         String red = "Red";
 
-        ArrayList<String> results = new ArrayList<String>();
         String splitScores[] = scores.split(", ");
 
         LinkedHashMap<String, Integer> scoresCounter = new LinkedHashMap<String, Integer>();
@@ -22,7 +21,7 @@ public class SchoolReportGenerator {
                 scoreCounter(splitScores, scoresCounter, i, key);
             }
         }
-        return getFinalResult(results, scoresCounter);
+        return getFinalResult(scoresCounter);
     }
 
     private static void scoreCounter(String[] splitScores, HashMap<String, Integer> scoresCounter, int i, String colourKey) {
@@ -31,7 +30,8 @@ public class SchoolReportGenerator {
             scoresCounter.replace(colourKey, count); }
     }
 
-    private static String getFinalResult(ArrayList<String> results, HashMap<String, Integer> scoresCounter) {
+    private static String getFinalResult(HashMap<String, Integer> scoresCounter) {
+        ArrayList<String> results = new ArrayList<String>();
         String colour = "";
         for (int i = 0; i < scoresCounter.size(); i++) {
             colour = (String) scoresCounter.keySet().toArray()[i];
