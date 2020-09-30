@@ -1,20 +1,29 @@
+import javax.sound.midi.SysexMessage;
+
 public class SchoolReportGenerator {
     public String write(String scores) {
 
+        String splitScores[] = scores.split(", ");
         Integer count = 0;
-        if(scores.equals("Green, Green")){
-            count += 2;
-            scores = "Green";
-        } else if (scores.equals("Green")) {
-            count ++;
-            scores = "Green";
-        }
-        else if (scores.contains("Amber")) {
-            count ++;
-            scores = "Amber";
-        } else if (scores.contains("Red")) {
-            count ++;
-            scores = "Red";
+        String green = "Green";
+        String amber = "Amber";
+        String red = "Red";
+
+
+        for (int i = 0; i < splitScores.length; i++)
+        {
+            if (green.equals(splitScores[i])){
+                scores = "Green";
+                count++;
+            } else if (amber.equals(splitScores[i])){
+                scores = "Amber";
+                count++;
+            }
+            else if (red.equals(splitScores[i])){
+                scores = "Red";
+                count++;
+            }
+
         }
 
         String output = String.format(": %s", count);

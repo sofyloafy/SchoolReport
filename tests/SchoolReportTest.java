@@ -16,6 +16,7 @@ public class SchoolReportTest {
     @Test
     public void testWriteForDoubleScore() {
         assertEquals("Green: 2",schoolReport.write("Green, Green"));
+        assertEquals("Green: 3",schoolReport.write("Green, Green, Green"));
     }
 
 }
